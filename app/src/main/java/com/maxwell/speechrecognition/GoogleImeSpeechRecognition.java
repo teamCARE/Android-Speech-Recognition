@@ -36,6 +36,7 @@ public class GoogleImeSpeechRecognition extends Fragment {
         recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, SpeechRecognition.MAX_RESULT_COUNT);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES, true);
     }
 
     void setSpeechRecognitionListener(@NonNull SpeechRecognitionListener speechRecognitionListener){

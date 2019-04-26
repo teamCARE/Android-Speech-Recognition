@@ -133,6 +133,11 @@ final class SpeechRecognitionListener implements RecognitionListener {
     //modified by teamCARE
     @Override
     public void onRmsChanged(float v) {
-        onSpeechRecognitionListener.onSpeechRecognitionRmsChanged(v);
+        onSpeechRecognitionListener.OnSpeechRecognitionRmsChanged(v);
+    }
+
+    public void getConfidenceScores(Bundle bundle) {
+        float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
+        onSpeechRecognitionListener.OnGetConfidenceScores(confidence);
     }
 }

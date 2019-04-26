@@ -57,5 +57,7 @@ public interface OnSpeechRecognitionListener {
 
     //MARK: added by teamCARE
 
-    void onSpeechRecognitionRmsChanged(float v);
+    void OnSpeechRecognitionRmsChanged(float v);
+
+    void OnGetConfidenceScores(float[] confidence);
 }
