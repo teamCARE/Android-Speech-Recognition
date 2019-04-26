@@ -53,4 +53,9 @@ public interface OnSpeechRecognitionListener {
      * @param errorMsg The description of the error
      */
     void OnSpeechRecognitionError(int errorCode, String errorMsg);
+
+
+    //MARK: added by teamCARE
+
+    void onSpeechRecognitionRmsChanged(float v);
 }

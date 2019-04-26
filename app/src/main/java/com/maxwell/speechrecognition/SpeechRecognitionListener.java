@@ -33,7 +33,9 @@ final class SpeechRecognitionListener implements RecognitionListener {
     public void onBeginningOfSpeech() {}
 
     @Override
-    public void onRmsChanged(float v) {}
+    public void onRmsChanged(float v) {
+        onSpeechRecognitionListener.onSpeechRecognitionRmsChanged(v);
+    }
 
     @Override
     public void onBufferReceived(byte[] bytes) {}
