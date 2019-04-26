@@ -124,8 +124,9 @@ final class SpeechRecognitionListener implements RecognitionListener {
             String word = matches.get(0);
 
             Log.i(SpeechRecognitionListener.class.getSimpleName(), word);
-            onSpeechRecognitionListener.OnSpeechRecognitionCurrentResult(word);
-            //
+            float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
+            onSpeechRecognitionListener.OnSpeechRecognitionCurrentResult(word, confidence);
+
 
         }else onError(SpeechRecognizer.ERROR_NO_MATCH);
     }
