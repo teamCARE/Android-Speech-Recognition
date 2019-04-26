@@ -59,5 +59,7 @@ public interface OnSpeechRecognitionListener {
 
     void OnSpeechRecognitionRmsChanged(float v);
 
-    void OnGetConfidenceScores(float[] confidence);
+    void OnGetConfidenceScoresFinal(float[] confidence);
+
+    void OnGetConfidenceScoresPartial(float[] confidence);
 }
