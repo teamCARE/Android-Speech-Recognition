@@ -58,7 +58,7 @@ public class GoogleImeSpeechRecognition extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        float[] placeholder = null;
+        float placeholder = 0;
 
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
 
@@ -71,6 +71,9 @@ public class GoogleImeSpeechRecognition extends Fragment {
                 String sentence = matches.get(0);
                 speechRecognitionListener.getOnSpeechRecognitionListener()
                         .OnSpeechRecognitionFinalResult(sentence, placeholder);
+                //modified by teamCARE
+                speechRecognitionListener.getOnSpeechRecognitionListener()
+                        .OnSpeechRecognitionCurrentResult(sentence, placeholder);
 
                 return;
             }

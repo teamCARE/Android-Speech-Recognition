@@ -29,7 +29,7 @@ public interface OnSpeechRecognitionListener {
      *
      * @param finalSentence translated text to return from speech
      */
-    void OnSpeechRecognitionFinalResult(String finalSentence, float[] confidence);  //modifed by teamCARE
+    void OnSpeechRecognitionFinalResult(String finalSentence, float confidence);  //modifed by teamCARE
 
 
     /**
@@ -39,7 +39,7 @@ public interface OnSpeechRecognitionListener {
      *
      * @param currentWord current translated word
      */
-    void OnSpeechRecognitionCurrentResult(String currentWord, float[] confidence);
+    void OnSpeechRecognitionCurrentResult(String currentWord, float confidence); //modifed by teamCARE
 
     /**
      * This callback is fired if there is an error with {@link SpeechRecognition}.
