@@ -33,11 +33,6 @@ final class SpeechRecognitionListener implements RecognitionListener {
     public void onBeginningOfSpeech() {}
 
     @Override
-    public void onRmsChanged(float v) {
-        onSpeechRecognitionListener.onSpeechRecognitionRmsChanged(v);
-    }
-
-    @Override
     public void onBufferReceived(byte[] bytes) {}
 
     @Override
@@ -134,4 +129,10 @@ final class SpeechRecognitionListener implements RecognitionListener {
 
     @Override
     public void onEvent(int i, Bundle bundle) {}
+
+    //modified by teamCARE
+    @Override
+    public void onRmsChanged(float v) {
+        onSpeechRecognitionListener.onSpeechRecognitionRmsChanged(v);
+    }
 }
