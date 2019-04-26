@@ -28,6 +28,7 @@ public class SpeechRecognition {
     private SpeechRecognitionPermissions speechRecognitionPermissions;
     private OnSpeechRecognitionPermissionListener onSpeechRecognitionPermissionListener;
     private GoogleImeSpeechRecognition googleImeSpeechRecognition;
+    private OnSpeechRecognition onSpeechRecognition;
 
     private boolean enableOnlyOfflineRecognition = false;
     private boolean handlePermissions = true;
@@ -261,6 +262,13 @@ public class SpeechRecognition {
 
         if(speechRecognizer == null)
             throw new NullPointerException();
+    }
+
+    //MARK: added by teamCARE
+
+    private void cancel(){
+        speechRecognizer.cancel();
+        onSpeechRecognition.onCancel();
     }
 
 }
