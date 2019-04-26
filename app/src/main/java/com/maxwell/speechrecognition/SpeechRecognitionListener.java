@@ -123,20 +123,13 @@ final class SpeechRecognitionListener implements RecognitionListener {
     @Override
     public void onPartialResults(Bundle bundle) {
         //sentence with highest confidence score is in position 0
-        float confidence;
         ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 
         if(matches != null && matches.size() > 0){
             String word = matches.get(0);
 
             Log.i(SpeechRecognitionListener.class.getSimpleName(), word);
-            //modified by teamCARE
-            if (bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES)!=null && bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES).length > 0) {  //avoids null ptr exception
-                confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES)[0];
-            } else {
-                confidence = 0;
-            }
-            onSpeechRecognitionListener.OnSpeechRecognitionCurrentResult(word, confidence);
+            onSpeechRecognitionListener.OnSpeechRecognitionCurrentResult(word);
 
 
         }else onError(SpeechRecognizer.ERROR_NO_MATCH);

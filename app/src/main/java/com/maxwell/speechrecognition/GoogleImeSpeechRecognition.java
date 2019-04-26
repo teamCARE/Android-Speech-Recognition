@@ -71,9 +71,7 @@ public class GoogleImeSpeechRecognition extends Fragment {
                 String sentence = matches.get(0);
                 speechRecognitionListener.getOnSpeechRecognitionListener()
                         .OnSpeechRecognitionFinalResult(sentence, placeholder);
-                //modified by teamCARE
-                speechRecognitionListener.getOnSpeechRecognitionListener()
-                        .OnSpeechRecognitionCurrentResult(sentence, placeholder);
+
 
                 return;
             }
