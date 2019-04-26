@@ -108,10 +108,9 @@ final class SpeechRecognitionListener implements RecognitionListener {
             String sentence = matches.get(0);
 
             Log.i(SpeechRecognitionListener.class.getSimpleName(), sentence);
-            onSpeechRecognitionListener.OnSpeechRecognitionFinalResult(sentence);
             //modified by teamCARE
             float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
-            onSpeechRecognitionListener.OnGetConfidenceScoresFinal(confidence);
+            onSpeechRecognitionListener.OnSpeechRecognitionFinalResult(sentence, confidence);
 
         }else onError(SpeechRecognizer.ERROR_NO_MATCH);
     }
@@ -126,8 +125,7 @@ final class SpeechRecognitionListener implements RecognitionListener {
 
             Log.i(SpeechRecognitionListener.class.getSimpleName(), word);
             onSpeechRecognitionListener.OnSpeechRecognitionCurrentResult(word);
-            float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
-            onSpeechRecognitionListener.OnGetConfidenceScoresPartial(confidence);
+            //
 
         }else onError(SpeechRecognizer.ERROR_NO_MATCH);
     }
@@ -141,13 +139,4 @@ final class SpeechRecognitionListener implements RecognitionListener {
         onSpeechRecognitionListener.OnSpeechRecognitionRmsChanged(v);
     }
 
-    public void getConfidenceScoresFinal(Bundle bundle) {
-        float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
-        onSpeechRecognitionListener.OnGetConfidenceScoresFinal(confidence);
-    }
-
-    public void getConfidenceScoresPartial(Bundle bundle) {
-        float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
-        onSpeechRecognitionListener.OnGetConfidenceScoresPartial(confidence);
-    }
 }

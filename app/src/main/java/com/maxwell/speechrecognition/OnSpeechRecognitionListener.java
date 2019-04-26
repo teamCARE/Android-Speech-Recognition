@@ -29,7 +29,7 @@ public interface OnSpeechRecognitionListener {
      *
      * @param finalSentence translated text to return from speech
      */
-    void OnSpeechRecognitionFinalResult(String finalSentence);
+    void OnSpeechRecognitionFinalResult(String finalSentence, float[] confidence);  //modifed by teamCARE
 
 
     /**
@@ -59,7 +59,4 @@ public interface OnSpeechRecognitionListener {
 
     void OnSpeechRecognitionRmsChanged(float v);
 
-    void OnGetConfidenceScoresFinal(float[] confidence);
-
-    void OnGetConfidenceScoresPartial(float[] confidence);
 }
