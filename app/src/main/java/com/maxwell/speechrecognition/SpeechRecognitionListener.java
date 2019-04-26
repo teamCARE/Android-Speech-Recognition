@@ -109,6 +109,9 @@ final class SpeechRecognitionListener implements RecognitionListener {
 
             Log.i(SpeechRecognitionListener.class.getSimpleName(), sentence);
             onSpeechRecognitionListener.OnSpeechRecognitionFinalResult(sentence);
+            //modified by teamCARE
+            float[] confidence = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
+            onSpeechRecognitionListener.OnGetConfidenceScores(confidence);
 
         }else onError(SpeechRecognizer.ERROR_NO_MATCH);
     }
