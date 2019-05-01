@@ -250,9 +250,6 @@ public class SpeechRecognition {
 
         //TODO: Set preferred Speech recognition Language
 
-        Uri audioUri = recognizerIntent.getData();
-        onSpeechRecognitionListener.OnAudioReceived(audioUri);
-
     }
 
 
