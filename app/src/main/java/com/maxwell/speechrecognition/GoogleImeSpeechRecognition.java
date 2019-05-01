@@ -68,11 +68,6 @@ public class GoogleImeSpeechRecognition extends Fragment {
 
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
 
-            //added by teamCARE
-            Uri audioUri = data.getData();
-            OnSpeechRecognitionListener temp = speechRecognitionListener.getOnSpeechRecognitionListener();
-            temp.OnAudioReceived(audioUri);
-
             /**
              * The matched text with the highest confidence score will be in position 0
              */
@@ -80,9 +75,8 @@ public class GoogleImeSpeechRecognition extends Fragment {
 
             if(matches != null && matches.size() >0){
                 String sentence = matches.get(0);
-                temp.OnSpeechRecognitionFinalResult(sentence, placeholder);
-                /*speechRecognitionListener.getOnSpeechRecognitionListener()
-                        .OnSpeechRecognitionFinalResult(sentence, placeholder)*/
+                speechRecognitionListener.getOnSpeechRecognitionListener()
+                        .OnSpeechRecognitionFinalResult(sentence, placeholder);
 
                 return;
             }

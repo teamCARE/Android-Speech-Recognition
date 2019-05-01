@@ -100,6 +100,8 @@ final class SpeechRecognitionListener implements RecognitionListener {
     @Override
     public void onResults(Bundle bundle) {    //modified by teamCARE to return confidence levels
 
+
+
         float confidence;
         //sentence with highest confidence score is in position 0
         ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);

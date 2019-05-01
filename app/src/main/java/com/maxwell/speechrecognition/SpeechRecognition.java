@@ -3,8 +3,10 @@ package com.maxwell.speechrecognition;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -247,6 +249,10 @@ public class SpeechRecognition {
         }
 
         //TODO: Set preferred Speech recognition Language
+
+        Uri audioUri = recognizerIntent.getData();
+        onSpeechRecognitionListener.OnAudioReceived(audioUri);
+
     }
 
 
