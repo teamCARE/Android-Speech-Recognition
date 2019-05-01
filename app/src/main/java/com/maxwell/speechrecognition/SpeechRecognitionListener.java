@@ -33,9 +33,6 @@ final class SpeechRecognitionListener implements RecognitionListener {
     public void onBeginningOfSpeech() {}
 
     @Override
-    public void onBufferReceived(byte[] bytes) {}
-
-    @Override
     public void onEndOfSpeech() {}
 
     @Override
@@ -99,7 +96,7 @@ final class SpeechRecognitionListener implements RecognitionListener {
     }
 
     @Override
-    public void onResults(Bundle bundle) {
+    public void onResults(Bundle bundle) {    //modified by teamCARE to return confidence levels
 
         float confidence;
         //sentence with highest confidence score is in position 0
@@ -138,10 +135,16 @@ final class SpeechRecognitionListener implements RecognitionListener {
     @Override
     public void onEvent(int i, Bundle bundle) {}
 
-    //modified by teamCARE
+
+    //MARK: modified by teamCARE
     @Override
     public void onRmsChanged(float v) {
         onSpeechRecognitionListener.OnSpeechRecognitionRmsChanged(v);
+    }
+
+    @Override
+    public void onBufferReceived(byte[] bytes) {
+        onSpeechRecognitionListener.OnBufferReceived(bytes);
     }
 
 }

@@ -39,7 +39,7 @@ public interface OnSpeechRecognitionListener {
      *
      * @param currentWord current translated word
      */
-    void OnSpeechRecognitionCurrentResult(String currentWord); //modifed by teamCARE
+    void OnSpeechRecognitionCurrentResult(String currentWord);
 
     /**
      * This callback is fired if there is an error with {@link SpeechRecognition}.
@@ -58,5 +58,7 @@ public interface OnSpeechRecognitionListener {
     //MARK: added by teamCARE
 
     void OnSpeechRecognitionRmsChanged(float v);
+
+    void OnBufferReceived(byte[] bytes);
 
 }
