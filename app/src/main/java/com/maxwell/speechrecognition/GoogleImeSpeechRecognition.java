@@ -70,8 +70,8 @@ public class GoogleImeSpeechRecognition extends Fragment {
 
             //added by teamCARE
             Uri audioUri = data.getData();
-            speechRecognitionListener.getOnSpeechRecognitionListener()
-                    .OnAudioReceived(audioUri);
+            OnSpeechRecognitionListener temp = speechRecognitionListener.getOnSpeechRecognitionListener();
+            temp.OnAudioReceived(audioUri);
 
             /**
              * The matched text with the highest confidence score will be in position 0
@@ -80,9 +80,9 @@ public class GoogleImeSpeechRecognition extends Fragment {
 
             if(matches != null && matches.size() >0){
                 String sentence = matches.get(0);
-                speechRecognitionListener.getOnSpeechRecognitionListener()
-                        .OnSpeechRecognitionFinalResult(sentence, placeholder);
-
+                temp.OnSpeechRecognitionFinalResult(sentence, placeholder);
+                /*speechRecognitionListener.getOnSpeechRecognitionListener()
+                        .OnSpeechRecognitionFinalResult(sentence, placeholder)*/
 
                 return;
             }
