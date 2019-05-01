@@ -1,6 +1,8 @@
 package com.maxwell.speechrecognition;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.SpeechRecognizer;
@@ -145,6 +147,10 @@ final class SpeechRecognitionListener implements RecognitionListener {
     @Override
     public void onBufferReceived(byte[] bytes) {
         onSpeechRecognitionListener.OnBufferReceived(bytes);
+    }
+
+    public void OnAudioReceived(Uri audioUri){
+        onSpeechRecognitionListener.OnAudioReceived(audioUri);
     }
 
 }

@@ -1,5 +1,8 @@
 package com.maxwell.speechrecognition;
 
+import android.content.Intent;
+import android.net.Uri;
+
 /**
  * Created by Maxwell on 14-Jan-18.
  */
@@ -59,6 +62,9 @@ public interface OnSpeechRecognitionListener {
 
     void OnSpeechRecognitionRmsChanged(float v);
 
-    void OnBufferReceived(byte[] bytes);
+    void OnBufferReceived(byte[] bytes);   //seems to be depreciated after IceCreamSandwhich :(
+
+    void OnAudioReceived(Uri audioUri);
+
 
 }

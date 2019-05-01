@@ -1,7 +1,9 @@
 package com.maxwell.speechrecognition;
 
 import android.app.Fragment;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -9,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
@@ -37,6 +40,9 @@ public class GoogleImeSpeechRecognition extends Fragment {
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, SpeechRecognition.MAX_RESULT_COUNT);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES, true);
+        recognizerIntent.putExtra("android.speech.extra.GET_AUDIO_FORMAT", "audio/AMR");
+        recognizerIntent.putExtra("android.speech.extra.GET_AUDIO", true);
+
     }
 
     void setSpeechRecognitionListener(@NonNull SpeechRecognitionListener speechRecognitionListener){
@@ -61,6 +67,11 @@ public class GoogleImeSpeechRecognition extends Fragment {
         float placeholder = 0;
 
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
+
+            //added by teamCARE
+            Uri audioUri = data.getData();
+            speechRecognitionListener.getOnSpeechRecognitionListener()
+                    .OnAudioReceived(audioUri);
 
             /**
              * The matched text with the highest confidence score will be in position 0
